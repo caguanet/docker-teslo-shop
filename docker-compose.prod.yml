@@ -10,10 +10,13 @@ services:
       target: ${STAGE}
       dockerfile: Dockerfile
     
-    image: klerith/teslo-shop-backend:2.5.0
+    image: caguanet/teslo-shop-backend:1.0.1
     container_name: nest-app
     ports:
       - ${PORT}:${PORT}
+    restart: always
+    depends_on:
+      - db
     environment:
       APP_VERSION: ${APP_VERSION}
       STAGE: ${STAGE}
